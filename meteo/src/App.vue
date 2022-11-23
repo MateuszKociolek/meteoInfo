@@ -1,9 +1,9 @@
 <template>
   <div class="container-fluid">
-    <div class="text-center">
+    <div class="text-center my-3">
       <h2>Meteo info</h2>
     </div>
-    <meteo></meteo>
+      <meteo></meteo>
   </div>
 </template>
 

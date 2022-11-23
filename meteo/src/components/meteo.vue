@@ -9,10 +9,10 @@
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="d-flex flex-wrap justify-content-center`">
+        <div class="row mt-4">
+            <div class="d-flex flex-wrap justify-content-center">
                 <div v-for="item, key in selectedCity" :key="key">
-                    <div class="card m-2" style="width: 18rem;">
+                    <div class="card m-2" style="width: 15rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{key}}:</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{item}}</h6>
