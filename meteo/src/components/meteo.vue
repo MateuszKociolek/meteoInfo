@@ -2,8 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="d-flex justify-content-center">
-                <select class="form-select text-center" size="3" aria-label="size 3 select example"
-                    v-model="selectedCity">
+                <select v-model="selectedCity">
                     <option value="" disabled>Wybierz stacje:</option>
                     <option v-for="item in meteoData" :value="item">{{ item["stacja"] }}</option>
                 </select>
@@ -12,11 +11,16 @@
         <div class="row mt-4">
             <div class="d-flex flex-wrap justify-content-center">
                 <div v-for="item, key in selectedCity" :key="key">
-                    <div class="card m-2" style="width: 15rem;">
+                    <div class="card m-2" style="width: 15rem; height: 7rem; ">
                         <div class="card-body">
-                            <h5 class="card-title">{{key}}:</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{item}}</h6>
-                            <p class="card-text"></p>
+                            <h5 class="card-title">{{ key }}:</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ item }}</h6>
+                            <p class="card-text">
+                                <i v-if="key == 'temperatura' && item <= 0" id="coldTemp" class="card-title icofont-snow-temp"></i>
+                                <i v-if="key == 'temperatura' && item > 0" id="hotTemp" class="card-title icofont-sunny-day-temp"></i>
+                                <i v-if="key == 'kierunek_wiatru'" style="font-size: var(--set-size);" class="icofont-compass"></i>
+                                <i v-if="key == 'predkosc_wiatru'" style="font-size: var(--set-size);" class="icofont-wind"></i>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -46,6 +50,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
+:root{
+    --set-size: 150%;
+}
+
+#hotTemp{
+    font-size: var(--set-size);
+}
+
+#coldTemp{
+    font-size: var(--set-size);
+}
 
 </style>
