@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="d-flex justify-content-center">
-                <select v-model="selectedCity">
+                <select id="countrySelector" v-model="selectedCity">
                     <option value="" disabled>Wybierz stacje:</option>
                     <option v-for="item in meteoData" :value="item">{{ item["stacja"] }}</option>
                 </select>
@@ -53,6 +53,13 @@ export default {
 <style>
 :root{
     --set-size: 150%;
+}
+
+#countrySelector{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgba(231, 231, 231, 0.521);
+    border-radius: 7px;
+    border: 1.5px rgba(0, 0, 0, 0.333) solid;
 }
 
 #hotTemp{
